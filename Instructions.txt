@@ -1,0 +1,6 @@
+Steps to run Analysis :
+1. Execute R Code "Part I Segmentation code.R"
+2. Inside R code need two additional actions
+3. Insert authentication code for BigQuery DB
+4. Read SQL code "Part I CAR Creation.sql"  in line 16 can be found in GitHub Repo.
+5. R code produces "ClusteringResult.csv" which is used in Power BI for the presentation. In case of re run pbix should be refreshed.
