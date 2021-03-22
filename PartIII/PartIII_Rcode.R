@@ -22,8 +22,11 @@ d<-dnorm(x, 0.02, ch.sd)
 plot(x, d, type='l')
 
 #I'm to lazy to do the maths for this so I'll write a function
+
+#Define number of customers for simulation
 n.cust<-50000
 
+# Calculate yearly revenues taking into account aquisition rate and churn rate.
 revenue<-function(arpu, acq, ch, n.cust){
   
   num.cust<-n.cust
@@ -44,8 +47,9 @@ sim.acq<-rnorm(10000, 0.05, acq.sd)
 sim.ch<-rnorm(10000, 0.02, ch.sd)
 
 #We can then apply the function to these values to get a distribution for end of year revenue
+#Calculate results for 10k combs for 50k customers
 
-sim.rev<-mapply(revenue, sim.arpu, sim.acq, sim.ch)
+sim.rev<-mapply(revenue, sim.arpu, sim.acq, sim.ch,MoreArgs = list(n.cust))
 
 summary(sim.rev)
 
